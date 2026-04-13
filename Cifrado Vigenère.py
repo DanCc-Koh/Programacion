@@ -1,3 +1,7 @@
+#Descripcion: Recibe la frase o palabra que ingrese el usuario y remueve todo tipo de tilde, dierecis, etc...
+#Entrada: Recibe la palabra o frase tenga o no tildes o dierecis
+#Salida: Devuelve la frase o palabra sin las tildes o dierecis que tenia la original
+#restricciones: N/A
 def SinTD(Palabra):
     import unicodedata
     Alfabetom =("abcdefghijklmnñopqrstuvwxyz")
@@ -14,6 +18,10 @@ def SinTD(Palabra):
     respuesta="".join(sinTD)
     return respuesta
 
+#Descripcion: Recibe la frase o palabra que deja la funcion SinTD y remueve todo tipo de simbolo o valor que no este en el albabeto mayuscula o miniscula
+#Entrada: Recibe la palabra o frase sin tildes o dierecis
+#Salida: Devuelve la frase o palabra solo con las letras y espacios que contenia originalmente
+#restricciones: N/A
 def depurar(Palabra):
     Alfabetom =("abcdefghijklmnñopqrstuvwxyz")
     AlfabetoM=("ABCDEFGHIJKLMNÑOPQRSTUVWXYZ")
@@ -26,10 +34,18 @@ def depurar(Palabra):
     Respuesta="".join(Corregido)
     return Respuesta
 
+#Descripcion: Recibe la frase o palabra que devuelve la funcion Depurar y convierte todo en minusculas
+#Entrada: Recibe la palabra o frase solo con letras mayusculas, minusculas y espacios
+#Salida: Devuelve la frase o palabra solo con minusculas y espacios
+#restricciones: N/A
 def Minus(F):
     m=F.lower()
     return m
 
+#Descripcion: Recibe la frase resultante de las funciones anteriores, la palabra clave, y procede a codificar la frase
+#Entrada: Recibe la palabra clave y la frase transformada ingresada anteriormente 
+#Salida: Devuelve la frase con la encriptacion Vigenère
+#restricciones: N/A
 def CodiVigenere(mfra3, mcla3):
 
     Alfabeto =("abcdefghijklmnñopqrstuvwxyz")
@@ -77,6 +93,10 @@ def CodiVigenere(mfra3, mcla3):
     Respuesta="".join(Encriptado)
     return Respuesta
 
+#Descripcion: Recibe la frase codificada y la palabra clave, y procede a decodificar la frase
+#Entrada: Recibe la palabra clave y la frase codificada ingresada anteriormente 
+#Salida: Devuelve la frase encriptada con la encriptacion Vigenère desencriptada
+#restricciones: N/A
 def DecodvVigenere(mfra3,mcla3):
     Alfabeto =("abcdefghijklmnñopqrstuvwxyz")
     Num1=[]
@@ -147,6 +167,9 @@ Menu=True
 Menu0=False
 while Menu==True:
     if Menu0==True:
+
+        """Esta se activa en caso de que el usuario reinicie el programa"""
+
         print("Programa Reiniciado\n")
         Frase=str(input("Ingrese la anterior frase o una nueva,no puede ser vacio: \n\t"))
         print()
@@ -161,6 +184,8 @@ while Menu==True:
         Menu2=True
         op=(input("¿Que desea hacer con la frase?\n\t 1.Codificar\n\t 2.Decodificar \n\t 3.Cancelar \n\t"))
         if op=="1":
+            """ MENU PARA CODIFICAR """
+
             while Menu1==True:
                 Menu2=True
                 op2=(input("Ingrese la cantidad de tecnicas que desea realizar (de 1 a 3) o 4 para Cancelar \n\t"))
@@ -304,6 +329,8 @@ while Menu==True:
 
 
         elif op=="2":
+            """ MENU PARA DECODIFICAR """
+
             print("Decodificar")
             while Menu2==True:
                 op3=(input("Cual desea utilizar: \n\t1.César\n\t2.Monoalfabético\n\t3.Vigénere\n\t4.Cancelar \n\t"))
@@ -368,6 +395,8 @@ while Menu==True:
 
 
         elif op=="3":
+            """ MENU PARA CERRAR EL PROGRAMA DESDE EL INICIO  O RETOMARLO """
+            
             T=(input("¿Desea finalizar el programa?\n\t1.Si\n\t2.No\n\t"))
             if T=="1":
                 Menu=False

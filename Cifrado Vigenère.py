@@ -1,5 +1,3 @@
-from itertools import zip_longest
-"""xmñsfsba knniñwbxme"""
 def SinTD(Palabra):
     import unicodedata
     Alfabetom =("abcdefghijklmnñopqrstuvwxyz")
